@@ -1,0 +1,272 @@
+.tabs_section__wrapper {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  max-width: 1280px;
+}
+
+.topheading {
+  margin-bottom: 4rem;
+}
+
+.topheading__text {
+  font-family: 'OpenSans-Italic-Variable';
+  color: #a3405e;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.vertical__tabs {
+  display: flex;
+  width: 100%;
+  gap: 0.2rem;
+}
+
+.tabs__one,
+.tabs__two,
+.tabs__three {
+  position: relative;
+  min-width: 100px;
+  min-height: 500px;
+  background-color: #a3405e;
+  color: white;
+  padding: 1rem;
+  font-family: 'Open Sans', sans-serif;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  text-align: center;
+  z-index: 1;
+  cursor: pointer;
+  transition: all 1s ease-in-out;
+}
+
+.tabs__one:not(.tab__active),
+.tabs__two:not(.tab__active),
+.tabs__three:not(.tab__active) {
+  box-shadow: none;
+}
+
+.tab__active {
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+  z-index: 2;
+}
+
+.tab__active::before,
+.tab__active::after {
+  content: '';
+  position: absolute;
+  width: 15px;
+  height: 25px;
+  background-color: #000;
+  z-index: -1;
+}
+
+.tab__active::before {
+  top: 0;
+  right: -15px;
+  clip-path: polygon(0 0, 100% 100%, 0 100%);
+}
+
+.tab__active::after {
+  bottom: 0;
+  right: -15px;
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+}
+
+.tabcontent {
+  background-color: #f7f7f7;
+  padding: 2rem 2.5rem;
+  max-height: 450px;
+  margin-top: 1.5rem;
+  margin-left: -15px;
+  z-index: 0;
+  flex-grow: 1;
+  transition: all 1s ease-in-out;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+.tabcontent.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.tabcontent > img {
+  width: 370px;
+  height: 350px;
+
+  object-fit: cover;
+}
+
+.tabTitle {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+  max-height: 420px;
+  text-align: start;
+  font-size: 1.3rem;
+  font-family: 'Open-Sans-Light';
+  padding-top: 1rem;
+}
+
+.tabcontent__text {
+  width: 52%;
+}
+
+.tabheading {
+  font-size: 1.6rem;
+  font-family: 'TrajanPro-Bold';
+  text-transform: uppercase;
+  line-height: 1.2;
+  color: #a3405e;
+  font-weight: 600;
+
+  margin-bottom: 1rem;
+}
+
+.tab__desc {
+  font-family: 'Open-Sans-Light';
+  font-size: 1.2rem;
+  color: #424242;
+}
+
+@media (max-width: 1280px) {
+  .container {
+    max-width: 1024px;
+  }
+  .tabheading {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .tabcontent {
+    padding: 2rem;
+  }
+
+  .tab__desc {
+    font-family: 'Open-Sans-Light';
+    font-size: 1rem;
+    color: #424242;
+  }
+
+  .tabcontent > img {
+    width: 300px;
+    height: 350px;
+  }
+
+  .topheading__text {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .container {
+    max-width: 768px;
+  }
+
+  .tabcontent > img {
+    width: 240px;
+    height: 240px;
+  }
+
+  .tabcontent {
+    padding: 1rem;
+  }
+
+  .tabheading {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .tabs__one,
+  .tabs__two,
+  .tabs__three {
+    position: relative;
+    min-width: 65px;
+  }
+
+  .topheading__text {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    max-width: 640px;
+  }
+
+  .vertical__tabs {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 0.2rem;
+  }
+
+  .tabs__one,
+  .tabs__two,
+  .tabs__three {
+    position: relative;
+    width: 100%;
+    min-height: 50px;
+    height: 60px;
+  }
+
+  .tabTitle {
+    writing-mode: horizontal-tb;
+    text-orientation: initial;
+    transform: none;
+    max-height: none;
+    text-align: left;
+    font-size: 1rem;
+    font-family: 'Open Sans', sans-serif;
+    padding-top: 0;
+  }
+
+  .tabcontent {
+    flex-direction: column;
+    max-height: 100%;
+    max-width: 100%;
+    margin-left: 0;
+  }
+
+  .tabcontent__text {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .tabcontent > img {
+    width: 100%;
+    height: 240px;
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    max-width: 475px;
+  }
+
+  .tabs__one,
+  .tabs__two,
+  .tabs__three {
+    position: relative;
+    width: 100%;
+    min-height: 70px;
+    height: 80px;
+  }
+
+  .topheading__text {
+    font-size: 1rem;
+  }
+}
